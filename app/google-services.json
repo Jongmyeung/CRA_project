@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "473968433953",
+    "project_id": "cra-project-86233",
+    "storage_bucket": "cra-project-86233.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473968433953:android:39927e8e7898a3dee37c60",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmBBw5fAIhsNFtAehKVEgRdyvKXWTGuig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotMemberProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="no member - Profile Fragment"
+        android:textSize="36dp"
+        android:textColor="#673AB7"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_toSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입하기"
+        android:layout_margin="50dp"/>
+
+</FrameLayout>
