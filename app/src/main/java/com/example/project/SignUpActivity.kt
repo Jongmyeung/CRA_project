@@ -60,7 +60,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // 성공적으로 가입된 경우
                     val user = mAuth.currentUser
-                    val userData = FirebaseData(name, email, password)
+                    val userData = FirebaseData(name, email)
 
                     // Firebase Authentication에서 생성된 사용자의 UID를 가져옴 왜냐하면 user라는 컬렉션 안의 문서에 userID로 저장하기 위해서
                     val userId = user?.uid

@@ -64,4 +64,8 @@ dependencies {
 
     // Add the dependency for the Firebase Authentication library
     implementation("com.google.firebase:firebase-auth-ktx") // kotlin에 맞춰진 firebase authentication 다루는 코드
+
+    implementation ("com.google.firebase:firebase-auth:22.3.1")
+
+    implementation ("com.google.firebase:firebase-firestore:24.10.1")
 }
