@@ -4,16 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/app_backgroud_color"
     tools:context=".ProfileFragment">
 
+
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="160dp"
+        android:background="@drawable/cover_image"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"/>
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Profile Fragment"
-        android:textColor="#673AB7"
-        android:textSize="36dp" />
+        android:layout_height="200dp"
+        android:background="@drawable/profile_backgroud_design_for_qr"/>
 
     <Button
         android:id="@+id/btn_toSignUpTest"
