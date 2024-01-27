@@ -7,37 +7,116 @@
     android:background="@drawable/app_backgroud_color"
     tools:context=".ProfileFragment">
 
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <ImageView
-        android:layout_width="400dp"
+    <FrameLayout
+        android:layout_width="380dp"
         android:layout_height="160dp"
         android:background="@drawable/cover_image"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center"/>
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/profile_backgroud_design_for_qr"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="\n[이종명님]\n프로필을 확인해주세요\n"/>
 
-    <Button
-        android:id="@+id/btn_toSignUpTest"
+        <Button
+            android:id="@+id/btn_toSignUpTest"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="10dp"
+            android:text="회원가입" />
+
+        <Button
+            android:id="@+id/btn_toLoginTest"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="135dp"
+            android:text="로그인" />
+    </FrameLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입하기" />
+        android:background="@drawable/profile_backgroud_design_for_qr"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="70dp"
+        android:scrollbars="none">
 
-    <Button
-        android:id="@+id/btn_toLoginTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="로그인하기" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_toSec"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="탈퇴하기" />
+            <Button
+                android:id="@+id/btn_test1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test1"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test2"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test3"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test4"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test5"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test6"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test7"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test8"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test9"/>
+
+            <Button
+                android:id="@+id/btn_toSec"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textStyle="bold"
+                android:textColor="#FBE205"
+                android:text="탈퇴하기" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="test10"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
 
 </LinearLayout>
