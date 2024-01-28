@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/app_backgroud_color"
+    android:background="@drawable/app_background_color"
     tools:context=".ProfileFragment">
 
+    <!-- TODO: Update blank fragment layout -->
+    
     <FrameLayout
         android:layout_width="380dp"
         android:layout_height="160dp"
-        android:background="@drawable/cover_image"
+        android:background="@drawable/profile_cover"
         android:layout_marginTop="70dp"
         android:layout_gravity="center">
 
@@ -38,12 +40,13 @@
             android:layout_marginTop="110dp"
             android:layout_marginLeft="135dp"
             android:text="로그인" />
+
     </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/profile_backgroud_design_for_qr"
+        android:background="@drawable/profile_scroll_cover"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="70dp"
         android:scrollbars="none">
