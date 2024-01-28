@@ -4,9 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/app_backgroud_color"
+    android:background="@drawable/app_background_color"
     tools:context=".ProfileFragment">
 
+    <!-- TODO: Update blank fragment layout -->
+    
     <FrameLayout
         android:layout_width="380dp"
         android:layout_height="160dp"
@@ -38,6 +40,7 @@
             android:layout_marginTop="110dp"
             android:layout_marginLeft="135dp"
             android:text="로그인" />
+
     </FrameLayout>
 
     <ScrollView
