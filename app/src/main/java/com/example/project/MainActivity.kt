@@ -25,6 +25,11 @@ class MainActivity : AppCompatActivity() {
 //            startActivity(intent) // 화면 전환
 //        }
 
+        if (intent.getBooleanExtra("replaceFragment", false)) {
+            // replaceFragment 플래그가 true인 경우 ProfileFragment로 교체
+            replaceWithProfileFragment()
+        }
+
         bottomNavigationView = findViewById(R.id.bottom_navigation)
 
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
@@ -49,5 +54,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit()
+    }
+
+    // 만약 회원가입 실패하면 ProfuleFragment로 교체해주기
+    private fun replaceWithProfileFragment() {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_container, ProfileFragment())
+        fragmentTransaction.commit()
     }
 }

@@ -9,6 +9,7 @@ import com.example.project.FirebaseData
 import com.example.project.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SignUpActivity : AppCompatActivity() {
@@ -27,33 +28,9 @@ class SignUpActivity : AppCompatActivity() {
             val name = binding.etName.text.toString() // 먼저 변수를 toString으로 저장
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
-
             signUpUser(name, email, password)
         }
     }
-
-//    private fun signUpUser(name: String, email: String, password: String) {
-//        mAuth.createUserWithEmailAndPassword(email, password)
-//            .addOnCompleteListener(this) { task ->
-//                if (task.isSuccessful) {
-//                    val user = mAuth.currentUser
-//
-//                    // FirebaseData 객체 생성
-//                    val userData = FirebaseData(name, email, password)
-//
-//                    // Firestore에 데이터 추가
-//                    addUserToFirestore(userData)
-//
-//                    // 회원가입 성공 시 수행할 작업
-//                    Toast.makeText(this, "회원가입 성공!", Toast.LENGTH_SHORT).show()
-//                    // 예: 홈 화면으로 이동
-//                } else {
-//                    // 회원가입 실패 시 오류 처리
-//                    // Toast.makeText(this, "회원가입 실패!", Toast.LENGTH_SHORT).show()
-//                    Toast.makeText(this, "회원가입 실패 : ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//    } // 아래 코드랑 같은 내용 but Logcat 출력하도록 되어있음
     private fun signUpUser(name: String, email: String, password: String) {
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -67,14 +44,20 @@ class SignUpActivity : AppCompatActivity() {
                     // userID가 null이 아니어야지 Firestore에 데이터 추가하기
                     if(userId != null){
                         addUserToFirestore(userId, userData)
+                        sendEmailVerification()
                     }
-
-                    Toast.makeText(this, "회원가입 성공!", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                    // 아래의 함수에서 이메일 인증
+//                    checkEmailVerification()
+                    // Firebase는 회원가입 후에 이메일 링크 보내는걸 지원하기에 먼저 회원가입 하고 이메일 링크 보내는걸로
+//                    Toast.makeText(this, "입력하신 이메일로 확인 링크를 전송했습니다.", Toast.LENGTH_LONG).show()
+//                    sendEmailVerification(name, email, password)
+//
+//                    Toast.makeText(this, "회원가입 성공!", Toast.LENGTH_SHORT).show()
+//                    val intent = Intent(this, MainActivity::class.java)
+//                    startActivity(intent)
 
                     // 바로 로그인되지 않도록 회원가입 성공 후 로그아웃 -> 로그인 따로 하도록
-                    mAuth.signOut()
+//                    mAuth.signOut()
                 } else {
 
                     // 회원가입 실패 시 오류 처리
@@ -86,6 +69,49 @@ class SignUpActivity : AppCompatActivity() {
                     // Toast.makeText(this, "회원가입 실패 : ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     Toast.makeText(this, "회원가입 실패 : ${errorMsg}", Toast.LENGTH_SHORT).show()
                     Log.e("SignUpActivity", "회원가입 실패: ${task.exception}")
+                }
+            }
+    }
+
+//    private fun checkEmailVerification() {
+//        val user: FirebaseUser? = mAuth.currentUser
+//        if (user != null) {
+//            user.reload()
+//                .addOnCompleteListener { reloadTask ->
+//                    if (reloadTask.isSuccessful) {
+//                        if (user.isEmailVerified) {
+//                            // 이메일이 인증되었음
+//
+//                            Toast.makeText(this, "이메일이 성공적으로 인증되었습니다.", Toast.LENGTH_SHORT).show()
+//                            val intent = Intent(this, MainActivity::class.java)
+//                            startActivity(intent)
+//
+//                            mAuth.signOut() // 회원가입 성공 후 로그아웃
+//                            finish()
+//                        } else {
+//                            // 이메일이 아직 인증되지 않음
+//                            Toast.makeText(this, "이메일이 인증되지 않았습니다.", Toast.LENGTH_SHORT).show()
+//                            // 사용자에게 알림 또는 재전송 옵션을 제공할 수 있습니다.
+//                        }
+//                    } else {
+//                        Toast.makeText(this, "사용자 정보 리로드 실패", Toast.LENGTH_SHORT).show()
+//                        Log.e("SignUpActivity", "사용자 정보 리로드 실패: ${reloadTask.exception}")
+//                    }
+//                }
+//        }
+//    }
+
+    private fun sendEmailVerification() {
+        val user: FirebaseUser? = mAuth.currentUser
+        user?.sendEmailVerification()
+            ?.addOnCompleteListener { verificationTask ->
+                if (verificationTask.isSuccessful) {
+                    Toast.makeText(this, "이메일 확인 링크가 전송되었습니다. 확인 후 로그인하세요.", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+                } else {
+                    Toast.makeText(this, "이메일 확인 링크 전송 실패", Toast.LENGTH_SHORT).show()
+                    Log.e("SignUpActivity", "이메일 확인 링크 전송 실패: ${verificationTask.exception}")
                 }
             }
     }
