@@ -115,7 +115,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_toPassword"
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:layout_marginTop="50dp"
@@ -135,16 +135,17 @@
         android:gravity="center"
         android:text="처음이신가요?"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_toPassword" />
 
     <Button
+        android:id="@+id/btn_toSignUpFromLogin"
         android:layout_width="110dp"
         android:layout_height="48dp"
         android:background="#00000000"
         android:text="회원가입"
         android:textColor="#5974BD"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_toPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
