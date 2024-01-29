@@ -4,16 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/secession_background_image"
+    android:orientation="vertical"
     tools:context=".SecessionActivity">
 
-    <Button
-        android:id="@+id/btn_sec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="탈퇴하기"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#D9D9D9"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
+
+    <ImageView
+        android:id="@+id/secessionTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/app_topbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="60dp"
+        android:text="정말로\n떠나시나요?"
+        android:textColor="#2D334F"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/secessionTopBar"/>
+
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginEnd="26dp"
+        android:orientation="vertical"
+        android:background="@drawable/secession_notification_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toBottomOf="@+id/secessionTopBar">
+
+        <TextView
+            android:id="@+id/tv_secessionText"
+            android:gravity="center"
+            android:layout_width="360dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white"
+            android:text="계속 함께 하고 싶지만...\n떠나시고 싶으시다면\n하단의 버튼을 눌러주세요.\n
+\n탈퇴하신다면\n가입하셨던 정보가 사라질 거예요!\n만드신 프로필이 사라질 거예요!\n참여하신 Event 기록이 사라질 거예요!"/>
+
+        <Button
+            android:id="@+id/btn_sec"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            android:text="탈퇴하기"
+            android:textStyle="bold"
+            android:backgroundTint="#F45265"
+            android:layout_marginLeft="120dp"/>
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
