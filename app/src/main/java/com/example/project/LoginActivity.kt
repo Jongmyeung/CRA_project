@@ -29,6 +29,11 @@ class LoginActivity : AppCompatActivity() {
 
             signIn(email, password) // Login과 Signin은 같다
         }
+
+        binding.btnToSignUpFromLogin.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
