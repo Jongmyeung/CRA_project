@@ -30,6 +30,11 @@ class SignUpActivity : AppCompatActivity() {
             val password = binding.etPassword.text.toString()
             signUpUser(name, email, password)
         }
+
+        binding.btnToLoginFromSignUp.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
     private fun signUpUser(name: String, email: String, password: String) {
         mAuth.createUserWithEmailAndPassword(email, password)
