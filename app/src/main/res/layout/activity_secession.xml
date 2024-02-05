@@ -36,7 +36,7 @@
         android:layout_marginTop="60dp"
         android:text="정말로\n떠나시나요?"
         android:textColor="#2D334F"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:fontFamily="@font/nanum_square_neo_heavy"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +62,8 @@
             android:layout_height="250dp"
             android:layout_marginTop="30dp"
             android:textColor="@color/white"
+            android:fontFamily="@font/nanum_square_neo_regular"
+            android:textSize="16dp"
             android:text="계속 함께 하고 싶지만...\n떠나시고 싶으시다면\n하단의 버튼을 눌러주세요.\n
 \n탈퇴하신다면\n가입하셨던 정보가 사라질 거예요!\n만드신 프로필이 사라질 거예요!\n참여하신 Event 기록이 사라질 거예요!"/>
 
@@ -70,6 +72,8 @@
             android:layout_width="120dp"
             android:layout_height="48dp"
             android:text="탈퇴하기"
+            android:fontFamily="@font/nanum_square_neo_bold"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:backgroundTint="#F45265"
             android:layout_marginLeft="120dp"/>

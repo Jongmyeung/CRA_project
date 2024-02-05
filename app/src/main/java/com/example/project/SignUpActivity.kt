@@ -25,10 +25,16 @@ class SignUpActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         binding.btnSignUp.setOnClickListener { // xml을 꾸며줘야 함
-            val name = binding.etName.text.toString() // 먼저 변수를 toString으로 저장
-            val email = binding.etEmail.text.toString()
+            val email = binding.etEmail.text.toString() // 먼저 변수를 toString으로 저장
             val password = binding.etPassword.text.toString()
-            signUpUser(name, email, password)
+            val passwordForCheck = binding.etPasswordForCheck.text.toString()
+
+            // 이걸 버튼 눌렀을 때?
+            if(password == passwordForCheck){
+                signUpUser(email, password, passwordForCheck)
+            } else {
+                Toast.makeText(this, "비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.btnToLoginFromSignUp.setOnClickListener {
@@ -36,13 +42,14 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    private fun signUpUser(name: String, email: String, password: String) {
+    // edittext가 달라졌기에 수정해야함.
+    private fun signUpUser(email: String, password: String, passwordForCheck: String) {
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // 성공적으로 가입된 경우
                     val user = mAuth.currentUser
-                    val userData = FirebaseData(name, email)
+                    val userData = FirebaseData(email)
 
                     // Firebase Authentication에서 생성된 사용자의 UID를 가져옴 왜냐하면 user라는 컬렉션 안의 문서에 userID로 저장하기 위해서
                     val userId = user?.uid
