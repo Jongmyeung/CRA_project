@@ -36,7 +36,8 @@
         android:layout_marginTop="60dp"
         android:text="정말로\n떠나시나요?"
         android:textColor="#2D334F"
-        android:textSize="24sp"
+        android:textSize="20sp"
+        android:fontFamily="@font/nanum_square_neo_heavy"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/secessionTopBar"/>
