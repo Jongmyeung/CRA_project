@@ -57,6 +57,20 @@ class SignUpActivity : AppCompatActivity() {
                 binding.btnEyePassword.setImageResource(R.drawable.icon_eye_alt_) // 비밀번호 보이기 아이콘 이미지
             }
         }
+
+        binding.btnEyePasswordCheck.setOnClickListener {
+            if(binding.etPasswordForCheck.transformationMethod == PasswordTransformationMethod.getInstance()) {
+                // 현재 비밀번호 입력 타입이 textPassword인 경우, 보이게 변경
+                binding.etPasswordForCheck.transformationMethod = HideReturnsTransformationMethod.getInstance()
+
+                binding.btnEyePasswordCheck.setImageResource(R.drawable.icon_eye_open_alt)
+            } else {
+                // 현재 비밀번호 입력 타입이 보이는 상태인 경우, 다시 textPassword로 변경
+                binding.etPasswordForCheck.transformationMethod = PasswordTransformationMethod.getInstance()
+                // 눈 모양 아이콘을 숨기는 상태로 변경
+                binding.btnEyePasswordCheck.setImageResource(R.drawable.icon_eye_alt_) // 비밀번호 보이기 아이콘 이미지
+            }
+        }
     }
     // edittext가 달라졌기에 수정해야함.
     private fun signUpUser(email: String, password: String, passwordForCheck: String) {
