@@ -2,6 +2,8 @@ package com.example.project
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -40,6 +42,20 @@ class SignUpActivity : AppCompatActivity() {
         binding.btnToLoginFromSignUp.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.btnEyePassword.setOnClickListener {
+            if(binding.etPassword.transformationMethod == PasswordTransformationMethod.getInstance()) {
+                // 현재 비밀번호 입력 타입이 textPassword인 경우, 보이게 변경
+                binding.etPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+
+                binding.btnEyePassword.setImageResource(R.drawable.icon_eye_open_alt)
+            } else {
+                // 현재 비밀번호 입력 타입이 보이는 상태인 경우, 다시 textPassword로 변경
+                binding.etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                // 눈 모양 아이콘을 숨기는 상태로 변경
+                binding.btnEyePassword.setImageResource(R.drawable.icon_eye_alt_) // 비밀번호 보이기 아이콘 이미지
+            }
         }
     }
     // edittext가 달라졌기에 수정해야함.
