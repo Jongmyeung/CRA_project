@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph">
+
+    <!-- HomeFragment 목적지 추가 -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.project.HomeFragment"
+        android:label="fragment_home"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- Event1Fragment 목적지 추가 -->
+    <fragment
+        android:id="@+id/event1Fragment"
+        android:name="com.example.project.Event1Fragment"
+        android:label="fragment_event1"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:layout="@layout/fragment_event1" />
+
+    <!-- HomeFragment에서 Event1Fragment로 이동하는 액션 설정 -->
+    <action
+        android:id="@+id/action_homeFragment_to_event1Fragment"
+        app:destination="@id/event1Fragment" />
+
+</navigation>
