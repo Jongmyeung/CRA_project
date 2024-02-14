@@ -3,7 +3,8 @@ package com.example.project
 import com.google.firebase.Timestamp
 
 data class FirebaseDataForEvent(
-    val name : String?,
+    val eventName : String?,
     val personnel : Int?,
-    val time : Timestamp?
+    val eventDate : Timestamp?,
+    val eventPlace : String?
 )
