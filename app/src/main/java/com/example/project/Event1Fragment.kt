@@ -51,5 +51,16 @@ class Event1Fragment : Fragment() {
             .addOnFailureListener{ exception ->
 
             }
+
+        binding.btnToApplyEvent.setOnClickListener {
+            firestore.collection("events")
+                .get()
+                .addOnSuccessListener { document ->
+                    if(document != null) {
+
+                    }
+                }
+        }
     }
+
 }
