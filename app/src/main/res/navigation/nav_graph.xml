@@ -9,7 +9,14 @@
         android:name="com.example.project.HomeFragment"
         android:label="fragment_home"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+
+        <!-- HomeFragment에서 Event1Fragment로 이동하는 액션 설정 -->
+        <action
+            android:id="@+id/action_homeFragment_to_event1Fragment"
+            app:destination="@id/event1Fragment" />
+
+    </fragment>
 
     <!-- Event1Fragment 목적지 추가 -->
     <fragment
@@ -19,9 +26,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         tools:layout="@layout/fragment_event1" />
 
-    <!-- HomeFragment에서 Event1Fragment로 이동하는 액션 설정 -->
-    <action
-        android:id="@+id/action_homeFragment_to_event1Fragment"
-        app:destination="@id/event1Fragment" />
+
 
 </navigation>
