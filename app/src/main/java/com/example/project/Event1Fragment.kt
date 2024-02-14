@@ -40,7 +40,8 @@ class Event1Fragment : Fragment() {
                     val eventName = document.getString("name")
                     val eventPlace = document.getString("place")
 
-                    val sentence = "[${eventName}]이(가) ${eventDate}에 ${eventPlace}에서 열립니다."
+                    // UTF-8과 firestore에서 사용하는? UTC+9랑 3시간 차이가 남
+                    val sentence = "[${eventName}]이(가)\n ${eventDate}에\n ${eventPlace}에서 열립니다."
 
                     eventStringBuilder.append(sentence).append("\n")
 
