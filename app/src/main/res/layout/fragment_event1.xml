@@ -62,6 +62,17 @@
                 android:textSize="18dp"
                 android:fontFamily="@font/nanum_square_neo_regular"/>
 
+            <Button
+                android:id="@+id/btn_toApplyEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#8D94C7"
+                android:layout_marginTop="160dp"
+                android:layout_marginLeft="250dp"
+                android:fontFamily="@font/nanum_square_neo_bold"
+                android:textSize="16dp"
+                android:text="신청"/>
+
         </FrameLayout>
 
 
