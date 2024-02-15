@@ -1,5 +1,6 @@
 package com.example.project
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
@@ -78,6 +79,15 @@ class SignUpActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // 성공적으로 가입된 경우
+
+                    // 회원가입 성공 시 SharedPreferences에 회원가입 여부 저장
+                    // SharedPreferencse는 데이터를 저장할 때 사용하는 방법 중 하나
+                    // 처음에 회원가입 유무 따지기 위해서 추가한 코드
+                    val sharedPref = this@SignUpActivity.getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+                    val editor = sharedPref.edit()
+                    editor.putBoolean("is_member", true)
+                    editor.apply()
+
                     val user = mAuth.currentUser
                     val userData = FirebaseData(email)
 
