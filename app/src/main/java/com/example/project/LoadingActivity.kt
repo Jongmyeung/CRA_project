@@ -1,6 +1,6 @@
 package com.example.project
 
-
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
@@ -16,12 +16,20 @@ class LoadingActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val intent1 = Intent(this, MainActivity::class.java) // 회원가입 한 경우
-        // val intent2 = Intent(this, MainActivity::class.java) // 회원가입 안 한 경우
+//        val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+//        val isMember = sharedPref.getBoolean("is_member", false) // 만약 값이 없으면 false 반환
+
+         val intent = Intent(this, MainActivity::class.java) // 회원가입 한 경우
+         // val intent2 = Intent(this, MainActivity::class.java) // 회원가입 안 한 경우
+//        val intent = if (isMember) {
+//            Intent(this, MainActivity::class.java)
+//        } else {
+//            Intent(this, NotMemberMainActivity::class.java)
+//        }
 
         // 경우에 따라 화면 이동이 달라짐
         binding.root.postDelayed({
-            startActivity(intent1)
+            startActivity(intent)
             finish()
         }, 3000)
 
