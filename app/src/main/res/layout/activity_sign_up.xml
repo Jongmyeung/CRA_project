@@ -8,7 +8,6 @@
     android:orientation="vertical"
     tools:context=".SignUpActivity">
 
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="180dp"
