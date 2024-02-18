@@ -7,7 +7,7 @@
     android:background="@drawable/secession_background_image"
     android:orientation="vertical"
     tools:context=".SecessionActivity">
-    
+
 
     <TextView
         android:id="@+id/tv_secession"
