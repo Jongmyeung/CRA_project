@@ -27,12 +27,12 @@
         android:id="@+id/textView3"
         android:layout_width="180dp"
         android:layout_height="75dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="113dp"
         android:fontFamily="@font/nanum_square_neo_heavy"
         android:text="안녕하세요!\nCRA이신가요?"
-        android:textColor="#2D334F"
+        android:textColor="#BF2D334F"
         android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
