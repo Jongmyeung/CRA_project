@@ -22,25 +22,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
 
-    <ImageView
-        android:id="@+id/secessionTopBar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/app_topbar"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
+        android:id="@+id/tv_secession"
         android:layout_width="140dp"
         android:layout_height="80dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="60dp"
+        android:fontFamily="@font/nanum_square_neo_heavy"
         android:text="정말로\n떠나시나요?"
         android:textColor="#2D334F"
         android:textSize="24sp"
-        android:fontFamily="@font/nanum_square_neo_heavy"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/secessionTopBar"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
@@ -53,7 +46,7 @@
         android:background="@drawable/secession_notification_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secessionTopBar">
+        app:layout_constraintTop_toBottomOf="@+id/tv_secession">
 
         <TextView
             android:id="@+id/tv_secessionText"
