@@ -2,12 +2,14 @@ package com.example.project
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.project.FirebaseData
 import com.example.project.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +28,12 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()
+
+        binding.etEmail.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
+
+        binding.etPassword.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
+
+        binding.etPasswordForCheck.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
 
         binding.btnSignUp.setOnClickListener { // xml을 꾸며줘야 함
             val email = binding.etEmail.text.toString() // 먼저 변수를 toString으로 저장
@@ -46,6 +54,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.btnEyePassword.setOnClickListener {
+
             if(binding.etPassword.transformationMethod == PasswordTransformationMethod.getInstance()) {
                 // 현재 비밀번호 입력 타입이 textPassword인 경우, 보이게 변경
                 binding.etPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
@@ -60,6 +69,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.btnEyePasswordCheck.setOnClickListener {
+
             if(binding.etPasswordForCheck.transformationMethod == PasswordTransformationMethod.getInstance()) {
                 // 현재 비밀번호 입력 타입이 textPassword인 경우, 보이게 변경
                 binding.etPasswordForCheck.transformationMethod = HideReturnsTransformationMethod.getInstance()
