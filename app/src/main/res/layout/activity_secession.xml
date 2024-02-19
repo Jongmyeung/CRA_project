@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.297183"/>
+        app:layout_constraintGuide_percent="0.25644916" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vertical_first_secession"
@@ -43,8 +43,9 @@
 
     <LinearLayout
         android:layout_width="335dp"
-        android:layout_height="400dp"
+        android:layout_height="340dp"
         android:orientation="vertical"
+        android:gravity="center"
         android:background="@drawable/secession_notification_image"
         app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_second_secession"
         app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_secession">
@@ -53,8 +54,7 @@
             android:id="@+id/tv_secessionText"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:fontFamily="@font/nanum_square_neo_regular"
             android:textSize="16dp"
@@ -63,14 +63,14 @@
 
         <Button
             android:id="@+id/btn_sec"
-            android:layout_width="120dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="탈퇴하기"
             android:fontFamily="@font/nanum_square_neo_bold"
+            android:layout_marginTop="30dp"
             android:textSize="16dp"
             android:textStyle="bold"
-            android:backgroundTint="#F45265"
-            android:layout_marginLeft="120dp"/>
+            android:backgroundTint="#F45265"/>
 
     </LinearLayout>
 
