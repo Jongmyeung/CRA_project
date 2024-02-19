@@ -200,18 +200,26 @@
 
     </LinearLayout>
 
-
-    <Button
-        android:id="@+id/btn_signUp"
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#2D334F"
-        android:fontFamily="@font/nanum_square_neo_bold"
-        android:textSize="16dp"
-        android:text="회원가입"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal_for_button"/>
+        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal_for_button">
+
+        <Button
+            android:id="@+id/btn_signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2D334F"
+            android:fontFamily="@font/nanum_square_neo_bold"
+            android:textSize="16dp"
+            android:text="회원가입"/>
+
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/tv_forLogin"

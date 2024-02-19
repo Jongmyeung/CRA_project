@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="WhiteShadowCard" parent="@style/CardView">
+        <item name="cardBackgroundColor">#FFFFFF</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardCornerRadius">8dp</item>
+    </style>
+
+    <style name="BlackShadowCard" parent="@style/CardView">
+        <item name="cardBackgroundColor">#000000</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardCornerRadius">8dp</item>
+    </style>
+</resources>
