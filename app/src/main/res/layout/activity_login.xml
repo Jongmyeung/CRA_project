@@ -88,7 +88,7 @@
         android:id="@+id/linearLayout_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first"
+        app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second"
         app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_second">
 
         <EditText
@@ -98,7 +98,6 @@
             android:textSize="16sp"
             android:fontFamily="@font/nanum_square_neo_regular"
             android:hint="이메일"
-            android:layout_marginLeft="20dp"
             android:background="@null"
             android:minWidth="48dp"
             android:minHeight="48dp"/>
