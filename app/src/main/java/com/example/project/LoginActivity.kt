@@ -1,9 +1,11 @@
 package com.example.project
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.project.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -20,6 +22,10 @@ class LoginActivity : AppCompatActivity() {
 
         // 초기화
         auth = Firebase.auth // auth = FirebaseAuth.getInstance()랑 같은 하지만 코틀린스러운 표현
+
+        binding.etEmailLogin.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
+
+        binding.etPasswordLogin.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
 
         binding.btnLogin.setOnClickListener{
             val email = binding.etEmailLogin.text.toString()
