@@ -92,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_title"/>
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="318dp"
         android:layout_height="wrap_content"
         android:background="@drawable/login_text_field_image"
         app:layout_constraintStart_toStartOf="@+id/guideline_vertical_for_title_and_else"
