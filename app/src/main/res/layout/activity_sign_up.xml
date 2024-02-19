@@ -4,30 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sign_up_background_image"
+    android:background="@drawable/signup_background_color_test"
     android:orientation="vertical"
     tools:context=".SignUpActivity">
 
+    <!-- 수평 가이드라인을 추가하여 화면의 30% 지점에 위치시킵니다. -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.11229135" />
+
+    <!-- 수직 가이드라인을 추가하여 화면의 50% 지점에 위치시킵니다. -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical_for_title_and_else"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10218978" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal_for_threebar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33943662"/>
+
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="180dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="113dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/nanum_square_neo_heavy"
         android:text="안녕하세요!\nCRA이신가요?"
         android:textColor="#BF2D334F"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toRightOf="@id/guideline_vertical_for_title_and_else"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_title"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="279dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/guideline_vertical_for_title_and_else"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal_for_threebar"
         android:gravity="center">
 
         <ImageView
@@ -45,86 +66,96 @@
             android:layout_width="318dp"
             android:layout_height="44dp"
             android:background="@drawable/login_text_field_image"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp" />
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="288dp"
+    <LinearLayout
+        android:id="@+id/linearLayoutInLinearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="279dp"
-        android:layout_marginEnd="40dp"
-        android:background="@null"
-        android:fontFamily="@font/nanum_square_neo_regular"
-        android:hint="이메일"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        app:layout_constraintLeft_toRightOf="@+id/guideline_vertical_for_title_and_else"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal_for_threebar"
+        >
 
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="245dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:background="@null"
-        android:fontFamily="@font/nanum_square_neo_regular"
-        android:hint="비밀번호"
-        android:inputType="textPassword"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@id/et_email" />
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="288dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:fontFamily="@font/nanum_square_neo_regular"
+            android:hint="이메일"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btn_eye_password"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:background="@null"
-        android:src="@drawable/icon_eye_alt_"
-        app:layout_constraintBottom_toBottomOf="@+id/et_password"
-        app:layout_constraintStart_toEndOf="@+id/et_password"
-        app:layout_constraintTop_toTopOf="@+id/et_password"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:background="@null"
+            android:fontFamily="@font/nanum_square_neo_regular"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
 
-    <EditText
-        android:id="@+id/et_password_for_check"
-        android:layout_width="245dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:hint="비밀번호 확인"
-        android:textSize="14sp"
-        android:fontFamily="@font/nanum_square_neo_regular"
-        android:background="@null"
-        android:inputType="textPassword"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password"/>
+        <ImageButton
+            android:id="@+id/btn_eye_password"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@null"
+            android:src="@drawable/icon_eye_alt_"
+            app:layout_constraintBottom_toBottomOf="@+id/et_password"
+            app:layout_constraintStart_toEndOf="@+id/et_password"
+            app:layout_constraintTop_toTopOf="@+id/et_password"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    <ImageButton
-        android:id="@+id/btn_eye_password_check"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:background="@null"
-        android:src="@drawable/icon_eye_alt_"
-        app:layout_constraintBottom_toBottomOf="@+id/et_password_for_check"
-        app:layout_constraintStart_toEndOf="@+id/et_password_for_check"
-        app:layout_constraintTop_toTopOf="@+id/et_password_for_check"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <EditText
+            android:id="@+id/et_password_for_check"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:hint="비밀번호 확인"
+            android:textSize="14sp"
+            android:fontFamily="@font/nanum_square_neo_regular"
+            android:background="@null"
+            android:inputType="textPassword"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_password"/>
+
+        <ImageButton
+            android:id="@+id/btn_eye_password_check"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@null"
+            android:src="@drawable/icon_eye_alt_"
+            app:layout_constraintBottom_toBottomOf="@+id/et_password_for_check"
+            app:layout_constraintStart_toEndOf="@+id/et_password_for_check"
+            app:layout_constraintTop_toTopOf="@+id/et_password_for_check"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btn_signUp"
@@ -137,32 +168,32 @@
         android:text="회원가입"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password_for_check"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutInLinearLayout"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_weight="1"/>
 
     <TextView
         android:id="@+id/tv_forLogin"
         android:layout_width="100dp"
         android:layout_height="48dp"
-        android:layout_marginTop="140dp"
         android:layout_marginStart="130dp"
         android:background="#00000000"
         android:gravity="center"
         android:text="처음이아닌가요?"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signUp"
-        app:layout_constraintVertical_bias="0.5"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_signUp"/>
 
     <Button
         android:id="@+id/btn_toLoginFromSignUp"
         android:layout_width="50dp"
         android:layout_height="48dp"
-        android:layout_marginTop="140dp"
         android:layout_marginLeft="230dp"
         android:background="#00000000"
         android:padding="0dp"
         android:text="로그인"
         android:textColor="#5972BD"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signUp"
-        app:layout_constraintVertical_bias="0.5"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_signUp"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
