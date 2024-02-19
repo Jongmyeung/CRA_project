@@ -125,6 +125,7 @@
             android:layout_width="288dp"
             android:layout_height="wrap_content"
             android:background="@null"
+            android:textCursorDrawable="@color/cursor"
             android:fontFamily="@font/nanum_square_neo_regular"
             android:hint="이메일"
             android:minWidth="48dp"
@@ -146,6 +147,7 @@
             android:layout_width="245dp"
             android:layout_height="wrap_content"
             android:background="@null"
+            android:textCursorDrawable="@color/cursor"
             android:fontFamily="@font/nanum_square_neo_regular"
             android:hint="비밀번호"
             android:inputType="textPassword"
@@ -180,6 +182,7 @@
             android:layout_height="wrap_content"
             android:hint="비밀번호 확인"
             android:textSize="14sp"
+            android:textCursorDrawable="@color/cursor"
             android:fontFamily="@font/nanum_square_neo_regular"
             android:background="@null"
             android:inputType="textPassword"
@@ -200,25 +203,17 @@
 
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+    <Button
+        android:id="@+id/btn_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="8dp"
+        android:backgroundTint="#2D334F"
+        android:fontFamily="@font/nanum_square_neo_bold"
+        android:textSize="16dp"
+        android:text="회원가입"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal_for_button">
-
-        <Button
-            android:id="@+id/btn_signUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#2D334F"
-            android:fontFamily="@font/nanum_square_neo_bold"
-            android:textSize="16dp"
-            android:text="회원가입"/>
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal_for_button"/>
 
 
     <TextView
