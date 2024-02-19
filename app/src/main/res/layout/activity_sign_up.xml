@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.11229135" />
+        app:layout_constraintGuide_percent="0.11229135"/>
 
     <!-- 수직 가이드라인 10% 위치 -->
     <androidx.constraintlayout.widget.Guideline
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5207633" />
+        app:layout_constraintGuide_percent="0.5207633"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vertical_for_length"
@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6267605"/>
+        app:layout_constraintGuide_percent="0.62670714"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_horizontal_for_bottom"
