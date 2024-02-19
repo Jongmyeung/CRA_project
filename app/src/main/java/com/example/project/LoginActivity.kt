@@ -4,6 +4,8 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.project.databinding.ActivityLoginBinding
@@ -32,6 +34,21 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.etPasswordLogin.text.toString()
 
             signIn(email, password) // Login과 Signin은 같다
+        }
+
+        binding.btnEyeIcon.setOnClickListener {
+
+            if(binding.etPasswordLogin.transformationMethod == PasswordTransformationMethod.getInstance()) {
+
+                binding.etPasswordLogin.transformationMethod = HideReturnsTransformationMethod.getInstance()
+
+                binding.btnEyeIcon.setImageResource(R.drawable.icon_eye_open_alt)
+            } else {
+
+                binding.etPasswordLogin.transformationMethod = PasswordTransformationMethod.getInstance()
+
+                binding.btnEyeIcon.setImageResource(R.drawable.icon_eye_alt_)
+            }
         }
 
         binding.btnToSignUpFromLogin.setOnClickListener {
