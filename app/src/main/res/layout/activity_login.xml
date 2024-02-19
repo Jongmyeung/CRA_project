@@ -92,18 +92,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password_login" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="120dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="146dp"
-        android:background="@drawable/orbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
-
     <Button
         android:id="@+id/btn_toPassword"
         android:layout_width="200dp"
@@ -114,7 +102,7 @@
         android:textColor="#5974BD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <TextView
         android:id="@+id/textView2"
