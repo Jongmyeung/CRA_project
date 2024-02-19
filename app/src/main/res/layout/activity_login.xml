@@ -63,7 +63,7 @@
         android:layout_height="40dp"
         android:fontFamily="@font/nanum_square_neo_heavy"
         android:text="반가워요!"
-        android:textColor="#2D334F"
+        android:textColor="#BF2D334F"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first"
