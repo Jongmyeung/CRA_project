@@ -42,7 +42,7 @@ class SignUpActivity : AppCompatActivity() {
 
             // 이걸 버튼 눌렀을 때?
             if(password == passwordForCheck){
-                signUpUser(email, password, passwordForCheck)
+                signUpUser(email, password)
             } else {
                 Toast.makeText(this, "비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
             }
@@ -84,7 +84,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
     // edittext가 달라졌기에 수정해야함.
-    private fun signUpUser(email: String, password: String, passwordForCheck: String) {
+    private fun signUpUser(email: String, password: String) {
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
