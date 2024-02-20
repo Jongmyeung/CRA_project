@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseUser
 
 class LoadingActivity : AppCompatActivity() {
     private lateinit var binding : ActivityLoadingBinding
-    private lateinit var mAuth : FirebaseAuth
+    private var mAuth : FirebaseAuth? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoadingBinding.inflate(layoutInflater)
