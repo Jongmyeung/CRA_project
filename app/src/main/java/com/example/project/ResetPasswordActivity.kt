@@ -1,9 +1,11 @@
 package com.example.project
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.project.databinding.ActivityResetPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -17,6 +19,10 @@ class ResetPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResetPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.etEmail.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
+
+        binding.etEmailCheck.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
 
         auth = Firebase.auth
         binding.btnToPasswordReset.setOnClickListener {
