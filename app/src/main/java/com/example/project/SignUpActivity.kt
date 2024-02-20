@@ -35,6 +35,12 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.etPasswordForCheck.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
 
+        binding.etEmail.setOnClickListener {
+            val etEmail = binding.etEmail
+            etEmail.requestFocus()
+            etEmail.isCursorVisible = true
+        }
+
         binding.btnSignUp.setOnClickListener { // xml을 꾸며줘야 함
             val email = binding.etEmail.text.toString() // 먼저 변수를 toString으로 저장
             val password = binding.etPassword.text.toString()

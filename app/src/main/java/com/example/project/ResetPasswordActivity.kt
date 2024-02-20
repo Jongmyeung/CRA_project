@@ -20,6 +20,19 @@ class ResetPasswordActivity : AppCompatActivity() {
         binding = ActivityResetPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.etEmail.setOnClickListener {
+            val etEmail = binding.etEmail
+            etEmail.requestFocus()
+            etEmail.isCursorVisible = true
+        }
+
+        binding.etEmailCheck.setOnClickListener {
+            val etEmailCheck = binding.etEmailCheck
+            etEmailCheck.requestFocus()
+            etEmailCheck.isCursorVisible = true
+        }
+
+
         binding.etEmail.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
 
         binding.etEmailCheck.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.cursor))
