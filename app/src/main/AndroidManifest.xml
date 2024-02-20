@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
         <activity
+            android:name=".ResetAndCheckPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResetActivity"
+            android:exported="false" />
+        <activity
             android:name=".Event1Activity"
             android:exported="false" />
         <activity
