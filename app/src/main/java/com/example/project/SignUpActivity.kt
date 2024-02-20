@@ -42,7 +42,7 @@ class SignUpActivity : AppCompatActivity() {
 
             // 이걸 버튼 눌렀을 때?
             if(password == passwordForCheck){
-                signUpUser(email, password, passwordForCheck)
+                signUpUser(email, password)
             } else {
                 Toast.makeText(this, "비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
             }
@@ -84,21 +84,22 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
     // edittext가 달라졌기에 수정해야함.
-    private fun signUpUser(email: String, password: String, passwordForCheck: String) {
+    private fun signUpUser(email: String, password: String) {
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // 성공적으로 가입된 경우
 
-                    // 회원가입 성공 시 SharedPreferences에 회원가입 여부 저장
-                    // SharedPreferencse는 데이터를 저장할 때 사용하는 방법 중 하나
-                    // 처음에 회원가입 유무 따지기 위해서 추가한 코드
-                    val sharedPref = this@SignUpActivity.getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-                    val editor = sharedPref.edit()
-                    editor.putBoolean("is_member", true)
-                    editor.apply()
+//                    회원가입 성공 시 SharedPreferences에 회원가입 여부 저장
+//                    SharedPreferencse는 데이터를 저장할 때 사용하는 방법 중 하나 처음에 회원가입 유무 따지기 위해서 추가한 코드
+//
+//                    val sharedPref = this@SignUpActivity.getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+//                    val editor = sharedPref.edit()
+//                    editor.putBoolean("is_member", true)
+//                    editor.apply()
 
-                    val user = mAuth.currentUser
+                    // Firebase는 login 유무를 자동으로 기억해주기에 그 코드 사용하자
+                    val user: FirebaseUser? = mAuth.currentUser
                     val userData = FirebaseData(email)
 
                     // Firebase Authentication에서 생성된 사용자의 UID를 가져옴 왜냐하면 user라는 컬렉션 안의 문서에 userID로 저장하기 위해서
@@ -122,6 +123,7 @@ class SignUpActivity : AppCompatActivity() {
 //                    mAuth.signOut()
                 } else {
 
+
                     // 회원가입 실패 시 오류 처리
                     val errorMsg : String = if(task.exception is FirebaseAuthException) { // FirebaseAuthException 중 하나인지 확인하기
                         (task.exception as FirebaseAuthException).message ?: "회원가입 실패"
@@ -130,6 +132,7 @@ class SignUpActivity : AppCompatActivity() {
                     }
                     // Toast.makeText(this, "회원가입 실패 : ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     Toast.makeText(this, "회원가입 실패 : ${errorMsg}", Toast.LENGTH_SHORT).show()
+                    updateUI(null)
                     Log.e("SignUpActivity", "회원가입 실패: ${task.exception}")
                 }
             }
@@ -168,14 +171,20 @@ class SignUpActivity : AppCompatActivity() {
         user?.sendEmailVerification()
             ?.addOnCompleteListener { verificationTask ->
                 if (verificationTask.isSuccessful) {
-                    Toast.makeText(this, "이메일 확인 링크가 전송되었습니다. 확인 후 로그인하세요.", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    finish()
+                    updateUI(user)
                 } else {
                     Toast.makeText(this, "이메일 확인 링크 전송 실패", Toast.LENGTH_SHORT).show()
                     Log.e("SignUpActivity", "이메일 확인 링크 전송 실패: ${verificationTask.exception}")
                 }
             }
+    }
+
+    private fun updateUI(user: FirebaseUser?) {
+        if(user!= null) {
+            Toast.makeText(this, "이메일 확인 링크가 전송되었습니다. 확인 후 로그인하세요.", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 
 
