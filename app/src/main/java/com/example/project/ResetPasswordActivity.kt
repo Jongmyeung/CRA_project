@@ -36,6 +36,8 @@ class ResetPasswordActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().sendPasswordResetEmail(Email).addOnCompleteListener{ task ->
             if(task.isSuccessful){
                 Toast.makeText(this, "비밀번호 변경 메일을 전송했습니다.", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
             } else {
                 Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT).show()
             }
