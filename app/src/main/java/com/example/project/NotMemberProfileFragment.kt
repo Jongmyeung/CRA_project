@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.project.databinding.ActivitySignUpBinding
 import com.example.project.databinding.FragmentNotMemberProfileBinding
 
 
@@ -19,7 +18,12 @@ class NotMemberProfileFragment : Fragment() {
     ): View? {
         binding = FragmentNotMemberProfileBinding.inflate(inflater)
 
-        binding.btnToSignUp.setOnClickListener{
+        binding.btnForSignUpFromNotSignHome1.setOnClickListener{
+            val intent = Intent(requireContext(), SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnForSignUpFromNotSignHome2.setOnClickListener{
             val intent = Intent(requireContext(), SignUpActivity::class.java)
             startActivity(intent)
         }
