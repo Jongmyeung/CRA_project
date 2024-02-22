@@ -18,12 +18,12 @@ class NotMemberProfileFragment : Fragment() {
     ): View? {
         binding = FragmentNotMemberProfileBinding.inflate(inflater)
 
-        binding.btnForSignUpFromNotSignHome1.setOnClickListener{
+        binding.btnForSignUpFromNotSignProfile1.setOnClickListener{
             val intent = Intent(requireContext(), SignUpActivity::class.java)
             startActivity(intent)
         }
 
-        binding.btnForSignUpFromNotSignHome2.setOnClickListener{
+        binding.btnForSignUpFromNotSignProfile2.setOnClickListener{
             val intent = Intent(requireContext(), SignUpActivity::class.java)
             startActivity(intent)
         }

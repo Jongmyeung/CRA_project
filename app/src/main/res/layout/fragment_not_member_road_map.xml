@@ -1,17 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NotMemberRoadMapFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="RoadMap Fragment"
-        android:textSize="36dp"
-        android:textColor="#EC4612"
-        android:gravity="center"/>
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_in_frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/app_background_color">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_first_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.103186645" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_second_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.13201821" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_third_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.16084976" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_fourth_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2169014"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_fifth_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.3633802"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_sixth_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.597183"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_seventh_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.7605633"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_vertical_first_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.085158154" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_vertical_second_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.15"/>
+
+
+            <ImageView
+                android:id="@+id/linearLayout_first_notSignProfile"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_cover"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_notSignRoadmap"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_first_notSignRoadmap"/>
+
+            <TextView
+                android:id="@+id/tv1_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="먼저 회원가입 해주세요!"
+                android:fontFamily="@font/nanum_square_neo_regular"
+                android:padding="0dp"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_notSignRoadmap"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_second_notSignRoadmap"/>
+
+            <TextView
+                android:id="@+id/tv2_notSignRoadmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Roadmap]"
+                android:fontFamily="@font/nanum_square_neo_bold"
+                android:padding="0dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_notSignRoadmap"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_third_notSignRoadmap"/>
+
+            <Button
+                android:id="@+id/btn_forSignUpFromNotSignRoadmap1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#BF8D94C7"
+                android:text="회원가입하기"
+                android:fontFamily="@font/nanum_square_neo_bold"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_notSignRoadmap"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fourth_notSignRoadmap"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/events_tap"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fifth_notSignRoadmap"/>
+
+            <!-- 오!! 길이를 비율로 정할 수 있다! -->
+
+            <TextView
+                android:id="@+id/tv3_notSignRoadmap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum_square_neo_bold"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="회원가입 하시면 앞으로의 기록을 보고 자신의 활동들을 기록할 수 있어요!"
+                app:layout_constraintWidth_percent="0.7138888"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_sixth_notSignRoadmap"/>
+
+            <Button
+                android:id="@+id/btn_forSignUpFromNotSignRoadmap2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:background="#00000000"
+                android:padding="0dp"
+                android:text="회원가입하기"
+                android:textColor="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_seventh_notSignRoadmap"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>

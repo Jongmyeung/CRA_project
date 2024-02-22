@@ -8,6 +8,7 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -91,7 +92,7 @@
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_first_notSignProfile"/>
 
             <TextView
-                android:id="@+id/tv1_notSignHome"
+                android:id="@+id/tv1_notSignProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="먼저 회원가입 해주세요!"
@@ -102,7 +103,7 @@
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_second_notSignProfile"/>
 
             <TextView
-                android:id="@+id/tv2_notSignHome"
+                android:id="@+id/tv2_notSignProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="[Profile]"
@@ -114,7 +115,7 @@
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_third_notSignProfile"/>
 
             <Button
-                android:id="@+id/btn_forSignUpFromNotSignHome1"
+                android:id="@+id/btn_forSignUpFromNotSignProfile1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#BF8D94C7"
@@ -132,7 +133,7 @@
             <!-- 오!! 길이를 비율로 정할 수 있다! -->
 
             <TextView
-                android:id="@+id/tv3_notSignHome"
+                android:id="@+id/tv3_notSignProfile"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanum_square_neo_bold"
@@ -145,7 +146,7 @@
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_sixth_notSignProfile"/>
 
             <Button
-                android:id="@+id/btn_forSignUpFromNotSignHome2"
+                android:id="@+id/btn_forSignUpFromNotSignProfile2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="0dp"
