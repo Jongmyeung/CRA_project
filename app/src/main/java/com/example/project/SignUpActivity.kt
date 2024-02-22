@@ -171,6 +171,7 @@ class SignUpActivity : AppCompatActivity() {
         user?.sendEmailVerification()
             ?.addOnCompleteListener { verificationTask ->
                 if (verificationTask.isSuccessful) {
+                    Toast.makeText(this, "이메일 확인 링크가 전송되었습니다. 확인 후 로그인하세요.", Toast.LENGTH_SHORT).show()
                     updateUI(user)
                 } else {
                     Toast.makeText(this, "이메일 확인 링크 전송 실패", Toast.LENGTH_SHORT).show()
@@ -181,7 +182,6 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if(user!= null) {
-            Toast.makeText(this, "이메일 확인 링크가 전송되었습니다. 확인 후 로그인하세요.", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
