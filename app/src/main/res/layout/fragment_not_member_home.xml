@@ -1,12 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NotMemberHomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_Iin_frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/app_background_color">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_first_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.103186645" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_second_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.13201821" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_third_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.16084976" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_fourth_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2169014"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_fifth_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3633802"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_sixth_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.597183"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_seventh_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7605633"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_first_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.085158154" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_second_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15"/>
+
+        <ImageView
+            android:id="@+id/linearLayout_first_notSignHome"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_cover"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_notSignHome"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_first_notSignHome"/>
+
+        <TextView
+            android:id="@+id/tv1_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="먼저 회원가입 해주세요!"
+            android:fontFamily="@font/nanum_square_neo_regular"
+            android:padding="0dp"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_notSignHome"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_second_notSignHome"/>
+
+        <TextView
+            android:id="@+id/tv2_notSignHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[Event]"
+            android:fontFamily="@font/nanum_square_neo_bold"
+            android:padding="0dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_notSignHome"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_third_notSignHome"/>
+
+        <Button
+            android:id="@+id/btn_forSignUpFromNotSignHome1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#BF8D94C7"
+            android:text="회원가입하기"
+            android:fontFamily="@font/nanum_square_neo_bold"
+            app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_notSignHome"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fourth_notSignHome"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/events_tap"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fifth_notSignHome"/>
+
+        <!-- 오!! 길이를 비율로 정할 수 있다! -->
+
+        <TextView
+            android:id="@+id/tv3_notSignHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanum_square_neo_bold"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="회원가입 하시면 다양한 이벤트 확인해 보실 수 있어요!"
+            app:layout_constraintWidth_percent="0.7138888"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_sixth_notSignHome"/>
+
+        <Button
+            android:id="@+id/btn_forSignUpFromNotSignHome2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:background="#00000000"
+            android:padding="0dp"
+            android:text="회원가입하기"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_seventh_notSignHome"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>
