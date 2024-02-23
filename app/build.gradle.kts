@@ -74,7 +74,9 @@ dependencies {
     implementation ("androidx.constraintlayout:constraintlayout:2.0.4")
 
     // for qr code
-    implementation ("com.journeyapps:zxing-android-embedded:5.0.1")
-    implementation ("com.google.zxing:core:3.4.2")
+    // implementation ("com.journeyapps:zxing-android-embedded:5.0.1")
+    implementation ("com.journeyapps:zxing-android-embedded:4.1.0")
+
+    implementation ("com.google.zxing:core:3.4.1")
 
 }

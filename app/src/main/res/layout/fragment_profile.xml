@@ -145,6 +145,14 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/events_tap"
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fifth_Profile"/>
+            
+            <ImageView
+                android:id="@+id/iv_qrCode"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_seventh_Profile"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
