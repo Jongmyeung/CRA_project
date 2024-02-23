@@ -35,7 +35,6 @@ class ProfileFragment : Fragment() {
 
         getUserInfoFromFirestore()
 
-
         binding.btnForProfile.setOnClickListener {
 
         }
