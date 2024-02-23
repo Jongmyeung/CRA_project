@@ -113,6 +113,7 @@
                 android:background="@drawable/events_tap"
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fourth_UserProfile" />
 
+
             <LinearLayout
                 android:id="@+id/linearLayout_name"
                 android:layout_width="340dp"
@@ -128,11 +129,26 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayout_nickname"
+                android:id="@+id/linearLayout_email"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/profile_bar_in_scrollview"
                 app:layout_constraintTop_toBottomOf="@id/linearLayout_name"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_nickname"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bar_in_scrollview"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout_email"
                 android:layout_marginTop="20dp"
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
 
@@ -157,9 +173,37 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linearLayout_github_address"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bar_in_scrollview"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout_student_number"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
+            </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linearLayout_checkCRA"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bar_in_scrollview"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout_github_address"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
