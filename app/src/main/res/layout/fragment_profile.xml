@@ -79,7 +79,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.15"/>
+                app:layout_constraintGuide_percent="0.1222222"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_vertical_third_Profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3583333"/>
 
             <ImageView
                 android:id="@+id/linearLayout_first_Profile"
@@ -102,7 +109,7 @@
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_second_Profile"/>
 
             <TextView
-                android:id="@+id/tv2_notSignProfile"
+                android:id="@+id/tv2_Profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="프로필을 확인해보세요"
@@ -114,13 +121,23 @@
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_third_Profile"/>
 
             <Button
-                android:id="@+id/btn_forSignUpFromNotSignProfile1"
+                android:id="@+id/btn_forProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#BF8D94C7"
                 android:text="프로필"
                 android:fontFamily="@font/nanum_square_neo_bold"
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_Profile"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fourth_Profile"/>
+
+            <Button
+                android:id="@+id/btn_forEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#BF8D94C7"
+                android:text="편집하기"
+                android:fontFamily="@font/nanum_square_neo_bold"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_third_Profile"
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fourth_Profile"/>
 
             <ImageView
