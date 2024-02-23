@@ -3,14 +3,14 @@
 
     <item
         android:id="@+id/bottom_home"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/icon_home_navigation_bar"
         android:title=""/>
     <item
         android:id="@+id/bottom_checkButton"
-        android:icon="@drawable/baseline_check_circle_24"
+        android:icon="@drawable/icon_check_navigation_bar"
         android:title="" /> <!-- title을 ""으로 비워두기 -->
     <item
         android:id="@+id/bottom_profile"
-        android:icon="@drawable/baseline_person_24"
+        android:icon="@drawable/icon_profile_bottom"
         android:title=""/>
 </menu>
