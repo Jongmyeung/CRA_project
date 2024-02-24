@@ -49,6 +49,7 @@ class ProfileFragment : Fragment() {
 
         binding.btnForEdit.setOnClickListener {
 
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
         }
 
         return binding.root
