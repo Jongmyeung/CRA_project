@@ -34,6 +34,7 @@ class EditProfileFragment : Fragment() {
                 val eventStringBuilderNickName = StringBuilder()
                 val eventStringBuilderGithub = StringBuilder()
                 val eventStringBuilderStudentNumber = StringBuilder()
+                val eventStringBuilderUserProfile = StringBuilder()
 
                 for(document in documents) {
                     val userName = document.getString("name")
@@ -47,16 +48,25 @@ class EditProfileFragment : Fragment() {
                     val sentenceNickName = "닉네임: ${userNickName}"
                     val sentenceGithub = "Github: ${userGithub}"
                     val sentenceStudentNumber = "학번: ${userStudentNumber}"
+                    val sentenceUserProfile = "[${userName}]님의 프로필이에요"
 
                     eventStringBuilderName.append(sentenceName).append("\n")
                     eventStringBuilderEmail.append(sentenceEmail).append("\n")
                     eventStringBuilderNickName.append(sentenceNickName).append("\n")
                     eventStringBuilderGithub.append(sentenceGithub).append("\n")
                     eventStringBuilderStudentNumber.append(sentenceStudentNumber).append("\n")
+                    eventStringBuilderUserProfile.append(sentenceUserProfile).append("\n")
                 }
+                binding.tvName.text = eventStringBuilderName.toString()
+                binding.tvEmail.text = eventStringBuilderEmail.toString()
+                binding.tvNickName.text = eventStringBuilderNickName.toString()
+                binding.tvStudentNumber.text = eventStringBuilderStudentNumber.toString()
+                binding.tvUserProfile1.text = eventStringBuilderUserProfile.toString()
+                binding.tvGithubAddress.text = eventStringBuilderGithub.toString()
+            }
+            .addOnFailureListener {exception ->
 
             }
-
     }
 
 }

@@ -91,7 +91,6 @@
                 android:id="@+id/tv_userProfile1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[이름]님의 프로필이에요"
                 android:fontFamily="@font/nanum_square_neo_bold"
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_third_EditProfile"
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_EditProfile"/>
@@ -121,6 +120,9 @@
 
                 <TextView
                     android:id="@+id/tv_name"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -137,6 +139,9 @@
 
                 <TextView
                     android:id="@+id/tv_email"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -153,6 +158,9 @@
 
                 <TextView
                     android:id="@+id/tv_nickName"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -169,6 +177,9 @@
 
                 <TextView
                     android:id="@+id/tv_studentNumber"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -185,6 +196,9 @@
 
                 <TextView
                     android:id="@+id/tv_githubAddress"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
