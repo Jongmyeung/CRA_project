@@ -57,7 +57,7 @@ class EditProfileFragment : Fragment() {
                     eventStringBuilderStudentNumber.append(sentenceStudentNumber).append("\n")
                     eventStringBuilderUserProfile.append(sentenceUserProfile).append("\n")
                 }
-                binding.tvName.text = eventStringBuilderName.toString()
+                binding.etName.hint = eventStringBuilderName.toString()
                 binding.tvEmail.text = eventStringBuilderEmail.toString()
                 binding.tvNickName.text = eventStringBuilderNickName.toString()
                 binding.tvStudentNumber.text = eventStringBuilderStudentNumber.toString()
