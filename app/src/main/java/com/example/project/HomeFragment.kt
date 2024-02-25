@@ -8,11 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.project.databinding.FragmentHomeBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-
+    private val firestore = FirebaseFirestore.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,6 +27,23 @@ class HomeFragment : Fragment() {
     // Fragment의 lifecycle
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        firestore.collection("events")
+            .get()
+            .addOnSuccessListener { documents ->
+                val eventStringBuilder = StringBuilder()
+                for(document in documents) {
+                    val eventName = document.getString("name")
+
+                    val sentence = "[${eventName}]"
+
+                    eventStringBuilder.append(sentence).append("\n")
+                }
+                binding.eventForBegin.text = eventStringBuilder.toString()
+            }
+            .addOnSuccessListener { exception ->
+
+            }
 
         binding.btnToApply.setOnClickListener {
             try {
