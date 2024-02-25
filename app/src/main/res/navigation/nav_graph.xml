@@ -37,6 +37,10 @@
             android:id="@+id/action_profileFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment"/>
 
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@+id/editProfileFragment"/>
+
     </fragment>
 
 
@@ -46,6 +50,14 @@
         android:label="fragment_user_profile"
         xmlns:tools="http://schemas.android.com/tools"
         tools:layout="@layout/fragment_user_profile"/>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.project.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:layout="@layout/fragment_edit_profile"/>
+
 
 
 

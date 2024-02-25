@@ -135,7 +135,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanum_square_neo_regular"
                     android:textSize="16sp"
-                    android:layout_marginTop="7dp"/>
+                    android:layout_marginTop="7dp"
+                    tools:ignore="SpeakableTextPresentCheck"/>
 
             </LinearLayout>
 
@@ -150,11 +151,22 @@
 
                 <TextView
                     android:id="@+id/tv_email"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="25dp"
-                    android:fontFamily="@font/nanum_square_neo_regular"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginLeft="28dp"
+                    android:fontFamily="@font/nanum_square_neo_bold"
+                    android:text="이메일:"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="236dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanum_square_neo_regular"
+                    android:textSize="16sp"
+                    android:layout_marginTop="7dp"
+                    tools:ignore="SpeakableTextPresentCheck"/>
 
             </LinearLayout>
 
@@ -169,11 +181,22 @@
 
                 <TextView
                     android:id="@+id/tv_nickName"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="25dp"
-                    android:fontFamily="@font/nanum_square_neo_regular"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginLeft="28dp"
+                    android:fontFamily="@font/nanum_square_neo_bold"
+                    android:text="닉네임:"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/et_nickName"
+                    android:layout_width="236dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanum_square_neo_regular"
+                    android:textSize="16sp"
+                    android:layout_marginTop="7dp"
+                    tools:ignore="SpeakableTextPresentCheck"/>
 
             </LinearLayout>
 
@@ -188,11 +211,22 @@
 
                 <TextView
                     android:id="@+id/tv_studentNumber"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="25dp"
-                    android:fontFamily="@font/nanum_square_neo_regular"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginLeft="28dp"
+                    android:fontFamily="@font/nanum_square_neo_bold"
+                    android:text="학번:"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/et_studentNumber"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanum_square_neo_regular"
+                    android:textSize="16sp"
+                    android:layout_marginTop="7dp"
+                    tools:ignore="SpeakableTextPresentCheck"/>
 
             </LinearLayout>
 
@@ -207,11 +241,22 @@
 
                 <TextView
                     android:id="@+id/tv_githubAddress"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="25dp"
-                    android:fontFamily="@font/nanum_square_neo_regular"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginLeft="28dp"
+                    android:fontFamily="@font/nanum_square_neo_bold"
+                    android:text="깃허브:"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/et_github"
+                    android:layout_width="236dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanum_square_neo_regular"
+                    android:textSize="16sp"
+                    android:layout_marginTop="7dp"
+                    tools:ignore="SpeakableTextPresentCheck"/>
 
             </LinearLayout>
 
