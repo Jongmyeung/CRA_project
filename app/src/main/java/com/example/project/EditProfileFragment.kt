@@ -47,12 +47,10 @@ class EditProfileFragment : Fragment() {
 
                         // EditText의 hint로 사용자의 이름 설정
                         binding.etName.hint = userName
-
-                        // 나머지 데이터는 TextView에 표시
-                        binding.tvEmail.text = userEmail
-                        binding.tvNickName.text = userNickName
-                        binding.tvStudentNumber.text = userStudentNumber.toString()
-                        binding.tvGithubAddress.text = userGithub
+                        binding.etEmail.hint = userEmail
+                        binding.etNickName.hint = userNickName
+                        binding.etStudentNumber.hint = userStudentNumber.toString()
+                        binding.etGithub.hint = userGithub
                     }
                 }
                 .addOnFailureListener { exception ->
