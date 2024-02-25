@@ -48,8 +48,14 @@ class ProfileFragment : Fragment() {
         }
 
         binding.btnForEdit.setOnClickListener {
-
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            try {
+                val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container, EditProfileFragment())
+                transaction.addToBackStack(null)
+                transaction.commit()
+            } catch (e : IllegalArgumentException) {
+                Log.e("NavigationError", "Navigation destination not found: ${e.message}")
+            }
         }
 
         return binding.root

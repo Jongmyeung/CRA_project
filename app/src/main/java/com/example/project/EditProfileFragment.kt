@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.project.databinding.FragmentEditProfileBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
 
 class EditProfileFragment : Fragment() {
 
     private lateinit var binding : FragmentEditProfileBinding
     private val firestore = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,47 +27,37 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        firestore.collection("users")
-            .get()
-            .addOnSuccessListener { documents ->
-                val eventStringBuilderName = StringBuilder()
-                val eventStringBuilderEmail = StringBuilder()
-                val eventStringBuilderNickName = StringBuilder()
-                val eventStringBuilderGithub = StringBuilder()
-                val eventStringBuilderStudentNumber = StringBuilder()
-                val eventStringBuilderUserProfile = StringBuilder()
+        // 현재 사용자 가져오기
+        val currentUser = auth.currentUser
 
-                for(document in documents) {
-                    val userName = document.getString("name")
-                    val userNickName = document.getString("nickName")
-                    val userEmail = document.getString("email")
-                    val userGithub = document.getString("Github")
-                    val userStudentNumber = document.getLong("studentNumber")
+        // 현재 사용자가 로그인되어 있는지 확인
+        if (currentUser != null) {
+            val userId = currentUser.uid
 
-                    val sentenceName = "이름: ${userName}"
-                    val sentenceEmail = "이메일: ${userEmail}"
-                    val sentenceNickName = "닉네임: ${userNickName}"
-                    val sentenceGithub = "Github: ${userGithub}"
-                    val sentenceStudentNumber = "학번: ${userStudentNumber}"
-                    val sentenceUserProfile = "[${userName}]님의 프로필이에요"
+            firestore.collection("users")
+                .document(userId)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null && document.exists()) {
+                        val userName = document.getString("name")
+                        val userNickName = document.getString("nickName")
+                        val userEmail = document.getString("email")
+                        val userGithub = document.getString("Github")
+                        val userStudentNumber = document.getLong("studentNumber")
 
-                    eventStringBuilderName.append(sentenceName).append("\n")
-                    eventStringBuilderEmail.append(sentenceEmail).append("\n")
-                    eventStringBuilderNickName.append(sentenceNickName).append("\n")
-                    eventStringBuilderGithub.append(sentenceGithub).append("\n")
-                    eventStringBuilderStudentNumber.append(sentenceStudentNumber).append("\n")
-                    eventStringBuilderUserProfile.append(sentenceUserProfile).append("\n")
+                        // EditText의 hint로 사용자의 이름 설정
+                        binding.etName.hint = userName
+
+                        // 나머지 데이터는 TextView에 표시
+                        binding.tvEmail.text = userEmail
+                        binding.tvNickName.text = userNickName
+                        binding.tvStudentNumber.text = userStudentNumber.toString()
+                        binding.tvGithubAddress.text = userGithub
+                    }
                 }
-                binding.etName.hint = eventStringBuilderName.toString()
-                binding.tvEmail.text = eventStringBuilderEmail.toString()
-                binding.tvNickName.text = eventStringBuilderNickName.toString()
-                binding.tvStudentNumber.text = eventStringBuilderStudentNumber.toString()
-                binding.tvUserProfile1.text = eventStringBuilderUserProfile.toString()
-                binding.tvGithubAddress.text = eventStringBuilderGithub.toString()
-            }
-            .addOnFailureListener {exception ->
-
-            }
+                .addOnFailureListener { exception ->
+                    // 실패 시 처리
+                }
+        }
     }
-
 }
