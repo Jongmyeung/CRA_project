@@ -5,16 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.project.databinding.FragmentEditProfileBinding
 import com.example.project.databinding.FragmentUserProfileBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
 
 class UserProfileFragment : Fragment() {
 
     private lateinit var binding : FragmentUserProfileBinding
     private val firestore = FirebaseFirestore.getInstance()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,46 +26,44 @@ class UserProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        firestore.collection("users")
-            .get()
-            .addOnSuccessListener { documents ->
-                val eventStringBuilderName = StringBuilder()
-                val eventStringBuilderEmail = StringBuilder()
-                val eventStringBuilderNickName = StringBuilder()
-                val eventStringBuilderGithub = StringBuilder()
-                val eventStringBuilderStudentNumber = StringBuilder()
-                val eventStringBuilderUserProfile = StringBuilder()
+        val auth = FirebaseAuth.getInstance()
 
-                for(document in documents) {
-                    val userName = document.getString("name")
-                    val userNickName = document.getString("nickName")
-                    val userEmail = document.getString("email")
-                    val userGithub = document.getString("Github")
-                    val userStudentNumber = document.getLong("studentNumber")
+        // 현재 사용자 가져오기
+        val currentUser = auth.currentUser
 
-                    val sentenceName = "이름: ${userName}"
-                    val sentenceEmail = "이메일: ${userEmail}"
-                    val sentenceNickName = "닉네임: ${userNickName}"
-                    val sentenceGithub = "Github: ${userGithub}"
-                    val sentenceStudentNumber = "학번: ${userStudentNumber}"
-                    val sentenceUserProfile = "[${userName}]님의 프로필이에요"
+        // 현재 사용자가 로그인되어 있는지 확인
+        if (currentUser != null) {
+            val userId = currentUser.uid
 
-                    eventStringBuilderName.append(sentenceName).append("\n")
-                    eventStringBuilderEmail.append(sentenceEmail).append("\n")
-                    eventStringBuilderNickName.append(sentenceNickName).append("\n")
-                    eventStringBuilderGithub.append(sentenceGithub).append("\n")
-                    eventStringBuilderStudentNumber.append(sentenceStudentNumber).append("\n")
-                    eventStringBuilderUserProfile.append(sentenceUserProfile).append("\n")
+            firestore.collection("users")
+                .document(userId)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null && document.exists()) {
+                        val userName = document.getString("name")
+                        val userNickName = document.getString("nickName")
+                        val userEmail = document.getString("email")
+                        val userGithub = document.getString("Github")
+                        val userStudentNumber = document.getLong("studentNumber")
+
+                        val sentenceName = "이름: ${userName ?: ""}"
+                        val sentenceEmail = "이메일: ${userEmail ?: ""}"
+                        val sentenceNickName = "닉네임: ${userNickName ?: ""}"
+                        val sentenceGithub = "Github: ${userGithub ?: ""}"
+                        val sentenceStudentNumber = "학번: ${userStudentNumber ?: ""}"
+                        val sentenceUserProfile = "[${userName ?: ""}]님의 프로필이에요"
+
+                        binding.tvName.text = sentenceName
+                        binding.tvEmail.text = sentenceEmail
+                        binding.tvNickName.text = sentenceNickName
+                        binding.tvStudentNumber.text = sentenceStudentNumber
+                        binding.tvUserProfile1.text = sentenceUserProfile
+                        binding.tvGithubAddress.text = sentenceGithub
+                    }
                 }
-                binding.tvName.text = eventStringBuilderName.toString()
-                binding.tvEmail.text = eventStringBuilderEmail.toString()
-                binding.tvNickName.text = eventStringBuilderNickName.toString()
-                binding.tvStudentNumber.text = eventStringBuilderStudentNumber.toString()
-                binding.tvUserProfile1.text = eventStringBuilderUserProfile.toString()
-                binding.tvGithubAddress.text = eventStringBuilderGithub.toString()
-            }
-            .addOnFailureListener {exception ->
-
-            }
+                .addOnFailureListener { exception ->
+                    // 실패 시 처리
+                }
+        }
     }
 }
