@@ -47,10 +47,31 @@ class Event1Fragment : Fragment() {
                     // UTF-8과 firestore에서 사용하는? UTC+9랑 3시간 차이가 남(이거는 내 계산에만 의존)
                     val sentence = "[${eventName}]이(가)\n ${eventDate}에\n ${eventPlace}에서 열립니다."
 
+
                     eventStringBuilder.append(sentence).append("\n")
 
                 }
                 binding.tvDescription.text = eventStringBuilder.toString()
+            }
+            .addOnFailureListener{ exception ->
+
+            }
+
+        firestore.collection("events")
+            .get()
+            .addOnSuccessListener { documents ->
+                val eventStringBuilder = StringBuilder()
+                for (document in documents) {
+
+                    val eventName = document.getString("name")
+
+
+                    val sentence = "[${eventName}]\n 위의 이벤트 관련 정보에요!\""
+
+                    eventStringBuilder.append(sentence).append("\n")
+
+                }
+                binding.explainEvent.text = eventStringBuilder.toString()
             }
             .addOnFailureListener{ exception ->
 
