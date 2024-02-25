@@ -109,7 +109,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="600dp"
                 android:background="@drawable/events_tap"
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fourth_UserProfile" />
 
