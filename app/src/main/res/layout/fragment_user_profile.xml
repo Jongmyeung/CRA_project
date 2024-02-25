@@ -123,6 +123,10 @@
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
 
                 <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -138,6 +142,10 @@
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
 
                 <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -153,6 +161,10 @@
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
 
                 <TextView
+                    android:id="@+id/tv_nickName"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -168,6 +180,10 @@
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
 
                 <TextView
+                    android:id="@+id/tv_studentNumber"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -183,6 +199,10 @@
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
 
                 <TextView
+                    android:id="@+id/tv_githubAddress"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/nanum_square_neo_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -198,6 +218,9 @@
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_UserProfile">
 
                 <TextView
+                    android:id="@+id/tv_edit"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
