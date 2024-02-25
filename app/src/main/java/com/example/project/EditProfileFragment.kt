@@ -6,22 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.project.databinding.FragmentEditProfileBinding
-import com.example.project.databinding.FragmentUserProfileBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class UserProfileFragment : Fragment() {
+class EditProfileFragment : Fragment() {
 
-    private lateinit var binding : FragmentUserProfileBinding
+    private lateinit var binding : FragmentEditProfileBinding
     private val firestore = FirebaseFirestore.getInstance()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentUserProfileBinding.inflate(inflater, container, false)
+        binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -59,7 +57,7 @@ class UserProfileFragment : Fragment() {
                     eventStringBuilderStudentNumber.append(sentenceStudentNumber).append("\n")
                     eventStringBuilderUserProfile.append(sentenceUserProfile).append("\n")
                 }
-                binding.tvName.text = eventStringBuilderName.toString()
+                binding.etName.hint = eventStringBuilderName.toString()
                 binding.tvEmail.text = eventStringBuilderEmail.toString()
                 binding.tvNickName.text = eventStringBuilderNickName.toString()
                 binding.tvStudentNumber.text = eventStringBuilderStudentNumber.toString()
@@ -70,4 +68,5 @@ class UserProfileFragment : Fragment() {
 
             }
     }
+
 }
