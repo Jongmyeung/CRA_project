@@ -115,14 +115,17 @@
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/profile_bar_in_scrollview"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fifth_EditProfile"
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_EditProfile">
 
                 <TextView
                     android:id="@+id/tv_name"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="25dp"
-                    android:fontFamily="@font/nanum_square_neo_regular"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="28dp"
+                    android:fontFamily="@font/nanum_square_neo_bold"
+                    android:text="이름:"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
