@@ -1,6 +1,7 @@
 package com.example.project
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -93,7 +94,14 @@ class EditProfileFragment : Fragment() {
                                     .document(userId)
                                     .update(updatedFields)
                                     .addOnSuccessListener {
-
+                                        try {
+                                            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                                            transaction.replace(R.id.frame_container, UserProfileFragment())
+                                            transaction.addToBackStack(null)
+                                            transaction.commit()
+                                        } catch (e : IllegalArgumentException) {
+                                            Log.e("NavigationError", "Navigation destination not found: ${e.message}")
+                                        }
                                     }
                                     .addOnFailureListener { exception ->
 

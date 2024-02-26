@@ -61,7 +61,7 @@
         <action
             android:id="@+id/action_editProfileFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment"/>
-        
+
     </fragment>
 
 
