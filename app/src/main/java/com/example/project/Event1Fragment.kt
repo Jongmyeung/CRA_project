@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Locale
 
 class Event1Fragment : Fragment() {
@@ -29,6 +30,38 @@ class Event1Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // 7일 이내의 이벤트가 있는지 확인하는 로직
+        firestore.collection("events")
+            .get()
+            .addOnSuccessListener { documents ->
+                val currentDate = Calendar.getInstance().time
+                val sevenDaysLater = Calendar.getInstance()
+                sevenDaysLater.add(Calendar.DAY_OF_YEAR, 7)
+
+                var hasEventWithin7Days = false
+
+                for (document in documents) {
+                    val timestamp = document.getTimestamp("date")
+                    val eventDate = timestamp?.toDate()
+
+                    if (eventDate != null && eventDate.after(currentDate) && eventDate.before(sevenDaysLater.time)) {
+                        // 7일 이내에 이벤트가 있는 경우
+                        hasEventWithin7Days = true
+                        break
+                    }
+                }
+
+                // 7일 이내에 이벤트가 있는 경우 버튼을 보이도록 설정
+                if (hasEventWithin7Days) {
+                    binding.btnToApplyEvent.visibility = View.VISIBLE
+                } else {
+                    binding.btnToApplyEvent.visibility = View.GONE
+                }
+            }
+            .addOnFailureListener { exception ->
+                // 오류 처리
+            }
 
         firestore.collection("events")
             .get()
