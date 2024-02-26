@@ -102,6 +102,15 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.3583333"/>
 
+            <ImageButton
+                android:id="@+id/iv_qrCodeCognize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/qrcode_cognize"
+                tools:ignore="SpeakableTextPresentCheck"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_zero_Profile"
+                app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_zero_Profile"/>
+
             <ImageView
                 android:id="@+id/linearLayout_first_Profile"
                 android:layout_width="340dp"
