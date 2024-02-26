@@ -83,77 +83,66 @@ class Event1Fragment : Fragment() {
             if (user != null) { // 로그인된 상태인지 먼저 확인하기
                 val userId = user.uid
 
-                firestore.collection("events")
+                // 사용자 정보 가져오기
+                firestore.collection("users").document(userId)
                     .get()
-                    .addOnSuccessListener { documents ->
-                        for (document in documents) {
+                    .addOnSuccessListener { userDocument ->
+                        val userEmail = userDocument.getString("email")
 
-                            // firebase에서는 숫자 타입이지만 문서에서 해당 필드가 문자열로 저장되어 있을 수 있음.
-                            // val currentPersonnel = document.getLong("personnel") ?: 0
+                        // 사용자의 이메일을 가져온 후 이벤트 목록 가져오기
+                        firestore.collection("events")
+                            .get()
+                            .addOnSuccessListener { documents ->
+                                for (document in documents) {
+                                    // Firestore에서 가져온 각 문서의 고유한 ID(event별로 다름)
+                                    val eventId = document.id
+                                    val eventCapacity = document.getLong("capacity") ?: 0
+                                    val currentPersonnel = document.getLong("personnel") ?: 0
 
-                            // Firestore에서 가져온 각 문서의 고유한 ID(event별로 다름)
-                            val eventId = document.id
-                            val eventCapacity = document.getLong("capacity") ?: 0
-                            val currentPersonnel = document.getLong("personnel") ?: 0
+                                    if (eventCapacity > currentPersonnel) { // 수용 인원 넘는지 확인
+                                        val eventParticipants = document.get("participants") as? List<String> ?: emptyList()
 
-                            // if문 안에서 선언하면 그 안에서만 사용 가능 따라서 밖에서 선언해야 함.
-                            val updatedPersonnel = currentPersonnel // 선언 및 초기화
+                                        if (!eventParticipants.contains(userEmail)) { // 중복 신청인지 확인
+                                            // 중복 신청이 아닌 경우
+                                            val updatedPersonnel = currentPersonnel + 1
 
-                            if (eventCapacity > currentPersonnel) { // 수용 인원 넘는지 확인
-                                val eventParticipants =
-                                    document.get("participants") as? List<String> ?: emptyList()
-
-                                if (!eventParticipants.contains(userId)) { // 중복 신청인지 확인
-                                    val updatedPersonnel = currentPersonnel + 1
-
-                                    // eventParticipants.add(userId)
-
-                                    document.reference
-                                        .update(
-                                            "personnel", updatedPersonnel,
-                                            "participants", FieldValue.arrayUnion(userId) // eventParticipants
-                                        )
-                                        .addOnSuccessListener {
-                                            Toast.makeText(requireContext(), "신청되었습니다.\n감사합니다.", Toast.LENGTH_SHORT).show()
+                                            // 필드 업데이트
+                                            document.reference
+                                                .update(
+                                                    "personnel", updatedPersonnel,
+                                                    "participants", FieldValue.arrayUnion(userEmail)
+                                                )
+                                                .addOnSuccessListener {
+                                                    Toast.makeText(requireContext(), "신청되었습니다.\n감사합니다.", Toast.LENGTH_SHORT).show()
+                                                }
+                                                .addOnFailureListener { e ->
+                                                    Toast.makeText(requireContext(), "업데이트를 처리하는 동안 오류가 발생했습니다: ${e.message}", Toast.LENGTH_SHORT).show()
+                                                }
+                                        } else {
+                                            // 이미 해당 이벤트에 신청한 경우
+                                            Toast.makeText(requireContext(), "이미 신청한 사용자입니다.", Toast.LENGTH_SHORT).show()
                                         }
-                                        .addOnFailureListener {e ->
-                                            Toast.makeText(requireContext(), "업데이트를 처리하는 동안 오류가 발생했습니다: ${e.message}", Toast.LENGTH_SHORT).show()
-                                        }
-                                } else {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "이미 신청한 사용자입니다.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+
+                                    } else {
+                                        // 정원이 다 찬 경우
+                                        Toast.makeText(requireContext(), "정원이 다 차 신청하실 수 없습니다.", Toast.LENGTH_SHORT).show()
+                                    }
                                 }
-
-                            } else {
-                                // Fragment에서는 this 대신에 requireContext()
-                                Toast.makeText(
-                                    requireContext(),
-                                    "정원이 다 차 신청하실 수 없습니다.",
-                                    Toast.LENGTH_SHORT
-                                ).show()
                             }
-//                            중복되는 부분
-//                            val eventRef = firestore.collection("events").document(eventId)
-//                            eventRef
-//                                .update("personnel", updatedPersonnel)
-//                                .addOnSuccessListener {
-//                                    Toast.makeText(
-//                                        requireContext(),"추가되었습니다.\n감사합니다.", Toast.LENGTH_SHORT).show()
-//                                }
-//                                .addOnFailureListener { e ->
-//                                    Toast.makeText(
-//                                        requireContext(),"업데이트를 처리하는 동안 오류가 발생했습니다: ${e.message}", Toast.LENGTH_SHORT).show()
-//                                }
-                        }
+                            .addOnFailureListener { e ->
+                                // 이벤트 목록을 가져오는 동안 오류 발생
+                                Toast.makeText(requireContext(), "이벤트 목록을 가져오는 동안 오류가 발생했습니다: ${e.message}", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+                    .addOnFailureListener { e ->
+                        // 사용자 정보를 가져오는 동안 오류 발생
+                        Toast.makeText(requireContext(), "사용자 정보를 가져오는 동안 오류가 발생했습니다: ${e.message}", Toast.LENGTH_SHORT).show()
                     }
             } else {
+                // 로그인되지 않은 경우
                 Toast.makeText(requireContext(), "먼저 로그인 해주세요.", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(requireContext(), LoginActivity::class.java))
             }
         }
     }
-
 }
