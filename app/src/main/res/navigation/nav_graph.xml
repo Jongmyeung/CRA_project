@@ -56,7 +56,13 @@
         android:name="com.example.project.EditProfileFragment"
         android:label="fragment_edit_profile"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:layout="@layout/fragment_edit_profile"/>
+        tools:layout="@layout/fragment_edit_profile">
+
+        <action
+            android:id="@+id/action_editProfileFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment"/>
+
+    </fragment>
 
 
 
