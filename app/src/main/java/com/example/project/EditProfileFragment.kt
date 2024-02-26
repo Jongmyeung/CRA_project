@@ -100,6 +100,7 @@ class EditProfileFragment : Fragment() {
                                             transaction.addToBackStack(null)
                                             transaction.commit()
                                         } catch (e : IllegalArgumentException) {
+                                            Toast.makeText(requireContext(), "입력하신 내용으로 수정되었습니다.", Toast.LENGTH_SHORT).show()
                                             Log.e("NavigationError", "Navigation destination not found: ${e.message}")
                                         }
                                     }
