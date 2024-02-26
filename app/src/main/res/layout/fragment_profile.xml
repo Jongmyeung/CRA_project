@@ -103,7 +103,7 @@
                 app:layout_constraintGuide_percent="0.3583333"/>
 
             <ImageButton
-                android:id="@+id/iv_qrCodeCognize"
+                android:id="@+id/btn_qrCodeCognize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/qrcode_cognize"

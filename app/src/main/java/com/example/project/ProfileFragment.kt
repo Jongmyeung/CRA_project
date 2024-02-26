@@ -1,5 +1,6 @@
 package com.example.project
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -10,11 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.project.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.WriterException
+import com.google.zxing.integration.android.IntentIntegrator
 import com.journeyapps.barcodescanner.BarcodeEncoder
 
 
@@ -24,6 +27,24 @@ class ProfileFragment : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private lateinit var currentUserUid: String
+    private val qrCodeScanLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        val resultCode = result.resultCode
+        val data = result.data
+        if (resultCode == Activity.RESULT_OK) {
+            val result = IntentIntegrator.parseActivityResult(result.resultCode, result.data)
+            if (result != null) {
+                if (result.contents == null) {
+                    Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(requireContext(), "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
+                    // 여기서 result.contents를 통해 QR 코드에서 읽은 내용을 사용할 수 있습니다.
+                }
+            }
+        } else {
+            Toast.makeText(requireContext(), "Scan failed", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,6 +56,10 @@ class ProfileFragment : Fragment() {
         currentUserUid = firebaseAuth.currentUser?.uid ?: ""
 
         getUserInfoFromFirestore()
+
+        binding.btnQrCodeCognize.setOnClickListener {
+            startQrCodeScan()
+        }
 
         binding.btnForProfile.setOnClickListener {
             try {
@@ -81,6 +106,16 @@ class ProfileFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun startQrCodeScan() {
+        val integrator = IntentIntegrator.forSupportFragment(this)
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+        integrator.setPrompt("Scan a QR Code")
+        integrator.setCameraId(0)
+        integrator.setBeepEnabled(false)
+        integrator.setBarcodeImageEnabled(true)
+        integrator.initiateScan()
     }
 
     private fun getUserInfoFromFirestore() {
