@@ -58,6 +58,28 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+
+        if(currentUser != null) {
+            val userId = currentUser.uid
+            firestore.collection("users")
+                .document(userId)
+                .get()
+                .addOnSuccessListener { document ->
+                    if(document != null && document.exists()) {
+                        val userName = document.getString("name")
+
+                        val sentenceName = "[${userName}님]"
+
+                        binding.tv1Profile.text = sentenceName
+                    }
+                }
+                .addOnFailureListener { exception ->
+
+                }
+        }
+
         return binding.root
     }
 
