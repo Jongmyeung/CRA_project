@@ -44,6 +44,7 @@ class EditProfileFragment : Fragment() {
                         val userEmail = document.getString("email")
                         val userGithub = document.getString("Github")
                         val userStudentNumber = document.getLong("studentNumber")
+                        val sentenceUserProfile = "[${userName ?: ""}]님의 프로필이에요"
 
                         // EditText의 hint로 사용자의 이름 설정
                         binding.etName.hint = userName
@@ -51,6 +52,7 @@ class EditProfileFragment : Fragment() {
                         binding.etNickName.hint = userNickName
                         binding.etStudentNumber.hint = userStudentNumber.toString()
                         binding.etGithub.hint = userGithub
+                        binding.tvUserProfile1.text = sentenceUserProfile
                     }
                 }
                 .addOnFailureListener { exception ->
