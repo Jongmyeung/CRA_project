@@ -31,37 +31,6 @@ class Event1Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 7일 이내의 이벤트가 있는지 확인하는 로직
-        firestore.collection("events")
-            .get()
-            .addOnSuccessListener { documents ->
-                val currentDate = Calendar.getInstance().time
-                val sevenDaysLater = Calendar.getInstance()
-                sevenDaysLater.add(Calendar.DAY_OF_YEAR, 30)
-
-                var hasEventWithin30Days = false
-
-                for (document in documents) {
-                    val timestamp = document.getTimestamp("date")
-                    val eventDate = timestamp?.toDate()
-
-                    if (eventDate != null && eventDate.after(currentDate) && eventDate.before(sevenDaysLater.time)) {
-                        // 7일 이내에 이벤트가 있는 경우
-                        hasEventWithin30Days = true
-                        break
-                    }
-                }
-
-                // 7일 이내에 이벤트가 있는 경우 버튼을 보이도록 설정
-                if (hasEventWithin30Days) {
-                    binding.btnToApplyEvent.visibility = View.VISIBLE
-                } else {
-                    binding.btnToApplyEvent.visibility = View.GONE
-                }
-            }
-            .addOnFailureListener { exception ->
-                // 오류 처리
-            }
 
         firestore.collection("events")
             .get()

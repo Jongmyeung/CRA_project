@@ -85,10 +85,9 @@
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_first_SignHome"/>
 
             <TextView
-                android:id="@+id/tv1_notSignHome"
+                android:id="@+id/tv1_SignHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="곧 진행돼요!"
                 android:fontFamily="@font/nanum_square_neo_regular"
                 android:padding="0dp"
                 android:textSize="14sp"
