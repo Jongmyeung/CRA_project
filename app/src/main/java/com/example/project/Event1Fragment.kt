@@ -37,9 +37,9 @@ class Event1Fragment : Fragment() {
             .addOnSuccessListener { documents ->
                 val currentDate = Calendar.getInstance().time
                 val sevenDaysLater = Calendar.getInstance()
-                sevenDaysLater.add(Calendar.DAY_OF_YEAR, 7)
+                sevenDaysLater.add(Calendar.DAY_OF_YEAR, 30)
 
-                var hasEventWithin7Days = false
+                var hasEventWithin30Days = false
 
                 for (document in documents) {
                     val timestamp = document.getTimestamp("date")
@@ -47,13 +47,13 @@ class Event1Fragment : Fragment() {
 
                     if (eventDate != null && eventDate.after(currentDate) && eventDate.before(sevenDaysLater.time)) {
                         // 7일 이내에 이벤트가 있는 경우
-                        hasEventWithin7Days = true
+                        hasEventWithin30Days = true
                         break
                     }
                 }
 
                 // 7일 이내에 이벤트가 있는 경우 버튼을 보이도록 설정
-                if (hasEventWithin7Days) {
+                if (hasEventWithin30Days) {
                     binding.btnToApplyEvent.visibility = View.VISIBLE
                 } else {
                     binding.btnToApplyEvent.visibility = View.GONE
