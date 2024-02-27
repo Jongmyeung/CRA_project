@@ -156,6 +156,42 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linearLayout_ah"
+                android:layout_width="340dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/profile_bar_in_scrollview"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout_second"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_SignHome">
+
+                <TextView
+                    android:id="@+id/tv_event_for_ah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginLeft="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_third"
+                android:layout_width="340dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/profile_bar_in_scrollview"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout_ah"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_SignHome">
+
+                <TextView
+                    android:id="@+id/tv_event_for_test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginLeft="25dp"/>
+
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
