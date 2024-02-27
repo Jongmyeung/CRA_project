@@ -122,7 +122,7 @@
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fifth_SignHome"/>
 
             <LinearLayout
-                android:id="@+id/linearLayout_name"
+                android:id="@+id/linearLayout_first"
                 android:layout_width="340dp"
                 android:layout_height="80dp"
                 android:background="@drawable/profile_bar_in_scrollview"
@@ -130,6 +130,25 @@
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_SignHome">
 
                 <TextView
+                    android:id="@+id/tv_event_for_begin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginLeft="25dp"/>
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/linearLayout_second"
+                android:layout_width="340dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/profile_bar_in_scrollview"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout_first"
+                app:layout_constraintLeft_toRightOf="@id/guideline_vertical_first_SignHome">
+
+                <TextView
+                    android:id="@+id/tv_event_for_clean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="23dp"
