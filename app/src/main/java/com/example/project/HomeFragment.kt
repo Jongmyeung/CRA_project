@@ -103,5 +103,33 @@ class HomeFragment : Fragment() {
             .addOnFailureListener { exception ->
                 // 오류 처리
             }
+
+        firestore.collection("events")
+            .get()
+            .addOnSuccessListener { documents ->
+                val eventStringBuilder = StringBuilder()
+                for(document in documents) {
+                    val eventName = document.getString("name")
+
+                    val sentence = "[Event] ${eventName}"
+
+                    eventStringBuilder.append(sentence).append("\n")
+                }
+                binding.tvEventForBegin.text = eventStringBuilder.toString()
+            }
+            .addOnSuccessListener { exception ->
+
+            }
+
+        binding.btnEvent1.setOnClickListener {
+            try {
+                val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container, Event1Fragment())
+                transaction.addToBackStack(null)
+                transaction.commit()
+            } catch (e: IllegalArgumentException) {
+                Log.e("NavigationError", "Navigation destination not found: ${e.message}")
+            }
+        }
     }
 }
