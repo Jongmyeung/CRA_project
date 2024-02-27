@@ -122,13 +122,14 @@ class HomeFragment : Fragment() {
             }
 
         binding.btnEvent1.setOnClickListener {
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            // 이동할 Fragment를 추가하거나 교체
-            transaction.replace(R.id.frame_container, Event1Fragment())
-            // 백스택에 추가하여 이전 Fragment로 돌아갈 수 있도록 함
-            transaction.addToBackStack(null)
-            // Transaction 완료
-            transaction.commit()
+            try {
+                val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container, Event1Fragment())
+                transaction.addToBackStack(null)
+                transaction.commit()
+            } catch (e: IllegalArgumentException) {
+                Log.e("NavigationError", "Navigation destination not found: ${e.message}")
+            }
         }
     }
 }
