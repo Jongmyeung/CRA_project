@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.1550704" />
+                app:layout_constraintGuide_percent="0.1450704" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_horizontal_fourth_UserProfile"
@@ -94,6 +94,7 @@
                 android:id="@+id/tv_userProfile1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:fontFamily="@font/nanum_square_neo_bold"
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_third_UserProfile"
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_UserProfile"/>
@@ -102,6 +103,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="정보를 입력해주세요!"
+                android:fontFamily="@font/nanum_square_neo_regular"
+                android:textSize="14sp"
                 android:layout_marginTop="3dp"
                 app:layout_constraintTop_toBottomOf="@id/tv_userProfile1"
                 app:layout_constraintLeft_toRightOf="@id/guideline_vertical_second_UserProfile"/>
