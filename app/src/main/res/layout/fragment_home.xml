@@ -121,7 +121,7 @@
                 android:background="@drawable/events_tap"
                 app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_fifth_SignHome"/>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/linearLayout_first"
                 android:layout_width="340dp"
                 android:layout_height="80dp"
@@ -133,10 +133,22 @@
                     android:id="@+id/tv_event_for_begin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="25dp"/>
+                    android:layout_marginLeft="25dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
-            </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#BF8D94C7"
+                    android:text="신청"
+                    android:layout_marginRight="20dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
             
             <LinearLayout
                 android:id="@+id/linearLayout_second"
